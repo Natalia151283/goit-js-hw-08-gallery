@@ -22,25 +22,24 @@ function renderGallery(gallery) {
   </a>
 </li>`;
     })
-    .join(' ');
+    .join(" ");
 
   return li;
 }
 
 function onPaletteContainerClick(event) {
-    window.addEventListener('keydown', onEscKeyPress);
   event.preventDefault();
   const targetImg = event.target.classList.contains("gallery__image");
 
   if (targetImg) {
     lightboxEl.classList.add("is-open");
-
+    window.addEventListener("keydown", onEscKeyPress);
     modalImg.src = event.target.dataset.source;
   }
 }
 
 function onModalClose() {
-    window.removeEventListener('keydown', onEscKeyPress);
+  window.removeEventListener("keydown", onEscKeyPress);
   lightboxEl.classList.remove("is-open");
   modalImg.src = "";
 }
@@ -51,10 +50,8 @@ function onOverlayClose(event) {
   }
 }
 
-function onEscKeyPress(event){
-    if(event.code === 'Escape'){
-        onModalClose();
-    }
-    
+function onEscKeyPress(event) {
+  if (event.code === "Escape") {
+    onModalClose();
+  }
 }
-
